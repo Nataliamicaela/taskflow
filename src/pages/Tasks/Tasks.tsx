@@ -1,6 +1,20 @@
+import { useAuth } from "../../context/AuthContext";
+
 const Tasks = () => {
+    const { user, loading } = useAuth();
+
+    if (loading) {
+        return <h2>Cargando...</h2>;
+    }
+
     return (
-        <h1>Tasks</h1>
+        <div>
+            <h1>Mis tareas</h1>
+
+            <p>
+                ¡Bienvenida {user?.email}! 👋
+            </p>
+        </div>
     );
 };
 
